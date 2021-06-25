@@ -9,11 +9,11 @@ const DUMMY_MEETUPS = [
     descriptioin: "first",
   },
   {
-    id: "m1",
-    title: "first meetup",
+    id: "m2",
+    title: "second meetup",
     image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Castelli.JPG",
     address: "address, eeeee",
-    descriptioin: "first",
+    descriptioin: "second",
   },
 ];
 
