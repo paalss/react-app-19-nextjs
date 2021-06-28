@@ -1,7 +1,14 @@
-import "../styles/globals.css";
+import NewMeetupForm from "../components/meetups/NewMeetupForm";
 
-function NewMeetup({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function NewMeetup() {
+  function addMeetupHabndler(enteredMeetupData) {
+    console.log(enteredMeetupData);
+  }
+  return (
+    <>
+      <NewMeetupForm onAddMeetup={addMeetupHabndler} />
+    </>
+  );
 }
 
 export default NewMeetup;
