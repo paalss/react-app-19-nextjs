@@ -1,3 +1,4 @@
+import MeetupDetail from "../components/meetups/MeetupDetail";
 import MeetupList from "../components/meetups/MeetupList";
 
 const DUMMY_MEETUPS = [
@@ -6,14 +7,14 @@ const DUMMY_MEETUPS = [
     title: "first meetup",
     image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Castelli.JPG",
     address: "address, eeeee",
-    descriptioin: "first",
+    description: "first",
   },
   {
     id: "m2",
     title: "second meetup",
     image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Castelli.JPG",
     address: "address, eeeee",
-    descriptioin: "second",
+    description: "second",
   },
 ];
 
