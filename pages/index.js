@@ -27,6 +27,7 @@ function HomePage(props) {
   );
 }
 
+/*
 // pre-rendering page
 export async function getStaticProps() {
   return {
@@ -37,5 +38,16 @@ export async function getStaticProps() {
     revalidate: 3600,
   };
 }
+*/
 
+// per request
+export async function getServerSideProps(context) {
+  const req = context.req;
+  const res = context.res;
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+  };
+}
 export default HomePage;
