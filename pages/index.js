@@ -27,11 +27,14 @@ function HomePage(props) {
   );
 }
 
+// pre-rendering page
 export async function getStaticProps() {
   return {
     props: {
       meetups: DUMMY_MEETUPS,
     },
+    // update regurarly after deployment i antall sekunder:
+    revalidate: 3600,
   };
 }
 
