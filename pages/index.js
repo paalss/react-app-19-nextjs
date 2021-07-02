@@ -19,23 +19,20 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function HomePage() {
-  const [loadedMeetups, setLoadedMeetups] = useState([]);
-
-  // executes etter component funciton executed
-  // loadedMeetups vil være tom i første render cycle
-  // det kan føre til unintensjonell loading spinner og dårligere SEO
-  // MEN
-  // Man kan hente data for pre-rendering. fortelle nextjs når man er ferdig. Page pre-rendering
-  useEffect(() => {
-    setLoadedMeetups(DUMMY_MEETUPS);
-  }, []);
-
+function HomePage(props) {
   return (
     <>
-      <MeetupList meetups={loadedMeetups} />
+      <MeetupList meetups={props.meetups} />
     </>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+  };
 }
 
 export default HomePage;
