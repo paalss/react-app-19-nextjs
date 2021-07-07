@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MongoClient } from "mongodb";
 import MeetupDetail from "../components/meetups/MeetupDetail";
 import MeetupList from "../components/meetups/MeetupList";
 
@@ -29,6 +30,18 @@ function HomePage(props) {
 
 // pre-rendering page
 export async function getStaticProps() {
+  MongoClient.connect();
+  const client = await MongoClient.connect(
+    "mongodb+srv://Paal:Oldgodzilla1@cluster0.eltz4.mongodb.net/meetups?retryWrites=true&w=majority"
+  );
+  const db = client.db();
+
+  const meetupsCollection = db.collection("meetups");
+
+  const meetups = await meetupsCollection.find().toArray();
+
+  client.close();
+
   return {
     props: {
       meetups: DUMMY_MEETUPS,
@@ -38,14 +51,16 @@ export async function getStaticProps() {
   };
 }
 
+/*
 // per request
-// export async function getServerSideProps(context) {
-//   const req = context.req;
-//   const res = context.res;
-//   return {
-//     props: {
-//       meetups: DUMMY_MEETUPS,
-//     },
-//   };
-// }
+export async function getServerSideProps(context) {
+  const req = context.req;
+  const res = context.res;
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+  };
+}
+*/
 export default HomePage;
