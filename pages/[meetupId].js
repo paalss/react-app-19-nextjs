@@ -18,7 +18,7 @@ export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
 
   const client = await MongoClient.connect(
-    "mongodb+srv://Paal:Oldgodzilla1@cluster0.eltz4.mongodb.net/meetups?retryWrites=true&w=majority"
+    `mongodb+srv://Paal:${process.env.REACT_APP_PASS}@cluster0.eltz4.mongodb.net/meetups?retryWrites=true&w=majority`
   );
   const db = client.db();
 
@@ -47,7 +47,7 @@ export async function getStaticProps(context) {
 // describe dynamic values
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
-    "mongodb+srv://Paal:Oldgodzilla1@cluster0.eltz4.mongodb.net/meetups?retryWrites=true&w=majority"
+    `mongodb+srv://Paal:${process.env.REACT_APP_PASS}@cluster0.eltz4.mongodb.net/meetups?retryWrites=true&w=majority`
   );
   const db = client.db();
 
