@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import Head from "next/head";
 import { useEffect, useState } from "react";
 import MeetupDetail from "../components/meetups/MeetupDetail";
 import MeetupList from "../components/meetups/MeetupList";
@@ -6,6 +7,10 @@ import MeetupList from "../components/meetups/MeetupList";
 function HomePage(props) {
   return (
     <>
+      <Head>
+        <title>React Meetups</title>
+        <meta name="description" content="finn meetups og legg til" />
+      </Head>
       <MeetupList meetups={props.meetups} />
     </>
   );
