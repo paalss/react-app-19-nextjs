@@ -69,7 +69,8 @@ export async function getStaticPaths() {
   return {
     // fallback: false === paths inneholder alle mulige meetupIds
     // fallback: true === man kan pregenerate de mest populære sidene, så kan next.js dynamisk finne ut resten
-    fallback: false,
+    // fallback: 'blocking' === samme som true, men her vil man ikke se en hvit side før alt er generert, man blir simply nektet adgang
+    fallback: "blocking",
     paths: meetups.map((meetup) => ({
       params: { meetupId: meetup._id.toString() },
     })),
